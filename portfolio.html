@@ -1,143 +1,107 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
-    <title>Student Bio</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <title>Portfolio</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
     <!-- Header -->
-    <nav
-      class="navbar navbar-light bg-white justify-content-between p-0 mb-4"
-      style="height: 100px;"
-    >
-      <div id="header" class="container align-middle">
-        <span class="navbar-brand text-white">Jennifer London</span>
-        <ul class="list-inline mb-0 align-middle">
-          <li class="list-inline-item px-2">
-            <a href="./index.html">About</a>
-          </li>
-          <li class="list-inline-item px-2">
-            <a href="./contact.html">Contact</a>
-          </li>
-          <li class="list-inline-item px-2">
-            <a href="./portfolio.html" class="active">Portfolio</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- End of Header -->
-
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card p-5">
-            <h5 class="card-title">Portfolio</h5>
-            <div class="card-body p-0">
-              <section class="d-flex flex-wrap">
-                <div class="d-inline-flex flex-column mr-4 mb-4">
-                  <article class="card text-center">
-                    <img
-                      src="./assets/images/nature-q-c-640-480-3.jpg"
-                      class="card-img rounded-0"
-                      alt="Hangman"
-                    />
-
-                    <a
-                      class="card-img-overlay p-0 text-decoration-none text-white"
-                      href="#"
-                    >
-                      <p>Hangman</p>
-                    </a>
-                  </article>
-                </div>
-                <div class="d-inline-flex border border-white mr-4 mb-4">
-                  <article class="card text-center">
-                    <img
-                      src="./assets/images/abstract-q-c-640-480-4.jpg"
-                      class="card-img rounded-0"
-                      alt="RPG Game"
-                    />
-                    <a
-                      class="card-img-overlay p-0 text-decoration-none text-white"
-                      href="#"
-                    >
-                      <p>RPG Game</p>
-                    </a>
-                  </article>
-                </div>
-                <div class="d-inline-flex border border-white mr-4 mb-4">
-                  <article class="card text-center">
-                    <img
-                      src="./assets/images/city-q-c-640-480-10.jpg"
-                      class="card-img rounded-0"
-                      alt="Trivia Game"
-                    />
-                    <a
-                      class="card-img-overlay p-0 text-decoration-none text-white"
-                      href="#"
-                    >
-                      <p>Trivia Game</p>
-                    </a>
-                  </article>
-                </div>
-                <div class="d-inline-flex border border-white mr-4 mb-4">
-                  <article class="card text-center">
-                    <img
-                      src="./assets/images/fashion-q-c-640-480-3.jpg"
-                      class="card-img rounded-0"
-                      alt="Rutgers Info Widget"
-                    />
-                    <a
-                      class="card-img-overlay p-0 text-decoration-none text-white"
-                      href="#"
-                    >
-                      <p>Rutgers Info Widget</p>
-                    </a>
-                  </article>
-                </div>
-                <div class="d-inline-flex border border-white mr-4 mb-4">
-                  <article class="card text-center">
-                    <img
-                      src="./assets/images/sports-q-c-640-480-10.jpg"
-                      class="card-img rounded-0"
-                      alt="Rock Paper Scissors"
-                    />
-                    <a
-                      class="card-img-overlay p-0 text-decoration-none text-white"
-                      href="#"
-                    >
-                      <p>Rock Paper Scissors</p>
-                    </a>
-                  </article>
-                </div>
-              </section>
-              <!-- End of Flex Section -->
-            </div>
-
-            <!-- End of Card Body -->
+    <header class="shadow">
+      <div class="wrapper">
+        <div class="navbar">
+          <div class="header-name nav_logo">
+            <span>Jenn London</span>
           </div>
-          <!-- End of Card -->
-        </div>
-        <!-- End of Column -->
-      </div>
-      <!-- End of Row -->
-    </div>
-    <!-- End of container -->
 
-    <footer class="footer mt-5 py-4">
-      <div class="container align-middle justify-center">
-        <p class="mb-0 text-center text-white">Jennifer London | &copy; 2019</p>
+          <nav class="nav_links">
+            <a href="./index.html">About</a>
+            <a href="./portfolio.html" class="active">Portfolio</a>
+            <a href="./contact.html">Contact</a>
+          </nav>
+        </div>
       </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Bio -->
+    <div id="content" class="wrapper">
+      <div class="card">
+        <div class="card-title">
+          <span>Portfolio</span>
+        </div>
+        <div class="card-body">
+          <!-- End Bio -->
+
+          <!-- Start Grid -->
+          <section class="grid-wrapper">
+            <article class="grid-item">
+              <figure>
+                <img
+                  src="./assets/images/nature-q-c-640-480-3.jpg"
+                  alt="Hangman"
+                />
+                <figcaption>
+                  <span><a>Hangman</a></span>
+                </figcaption>
+              </figure>
+            </article>
+            <article class="grid-item">
+              <figure>
+                <img
+                  src="./assets/images/abstract-q-c-640-480-4.jpg"
+                  alt="RPG Game"
+                />
+                <figcaption>
+                  <span><a>RPG Game</a></span>
+                </figcaption>
+              </figure>
+            </article>
+            <article class="grid-item">
+              <figure>
+                <img
+                  src="./assets/images/city-q-c-640-480-10.jpg"
+                  alt="Trivia Game"
+                />
+                <figcaption>
+                  <span><a>Trivia Game</a></span>
+                </figcaption>
+              </figure>
+            </article>
+            <article class="grid-item">
+              <figure>
+                <img
+                  src="./assets/images/fashion-q-c-640-480-3.jpg"
+                  alt="Rutgers Info Widget"
+                />
+                <figcaption>
+                  <span><a>Rutgers Info Widget</a></span>
+                </figcaption>
+              </figure>
+            </article>
+            <article class="grid-item">
+              <figure>
+                <img
+                  src="./assets/images/sports-q-c-640-480-10.jpg"
+                  alt="Rock Paper Scissors"
+                />
+                <figcaption>
+                  <span><a>Rock Paper Scissors</a></span>
+                </figcaption>
+              </figure>
+            </article>
+          </section>
+          <!-- End Grid -->
+        </div>
+      </div>
+    </div>
+    <footer>
+      <span>Jennifer London | &copy; 2019</span>
     </footer>
   </body>
 </html>

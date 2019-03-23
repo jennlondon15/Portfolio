@@ -1,101 +1,80 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Student Bio</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
     <!-- Header -->
-    <nav
-      class="navbar navbar-light bg-white justify-content-between p-0 mb-4"
-      style="height: 100px;"
-    >
-      <div id="header" class="container align-middle">
-        <span class="navbar-brand text-white">Jennifer London</span>
-        <ul class="list-inline mb-0 align-middle">
-          <li class="list-inline-item px-2">
+    <header class="shadow">
+      <div class="wrapper">
+        <div class="navbar">
+          <div class="header-name nav_logo">
+            <span>Jenn London</span>
+          </div>
+
+          <nav class="nav_links">
             <a href="./index.html" class="active">About</a>
-          </li>
-          <li class="list-inline-item px-2">
-            <a href="./contact.html">Contact</a>
-          </li>
-          <li class="list-inline-item px-2">
             <a href="./portfolio.html">Portfolio</a>
-          </li>
-        </ul>
+            <a href="./contact.html">Contact</a>
+          </nav>
+        </div>
       </div>
-    </nav>
-    <!-- End of Header -->
+    </header>
 
     <!-- Bio -->
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card p-5">
-            <h5 class="card-title">About Me</h5>
-            <div class="card-body p-0">
-              <img
-                src="./assets/images/jenn-profile-pic.jpg"
-                alt="Jennifer Profile"
-                class="img-fluid"
-              />
-              <div class="card-text">
-                <p>
-                  Born and raised in Arizona, I moved to Colorado at 18,
-                  relocating to Denver a year later. Working for the dental
-                  industry, coordinating dental insurance for a local office for
-                  two years. I decided that is not what I wanted to do with the
-                  rest of my life, so I looked into programs to give me valuable
-                  and applicable skills that I could use in the work force. I've
-                  always been a problem solver and have always enjoyed that
-                  aspect of the coding world. Now, working full time, I am an
-                  aspiring Web Developer.
-                </p>
+    <div id="content" class="wrapper">
+      <div class="card">
+        <div class="card-title">
+          <span>About Me</span>
+        </div>
+        <div class="card-body">
+          <div class="card-body-image">
+            <img src="./assets/images/jenn-profile-pic.jpg" alt="Jenn London" />
+          </div>
+          <div class="card-body-text">
+            <p>
+              Born and raised in Arizona, I moved to Colorado at 18, relocating
+              to Denver a year later. Working for the dental industry,
+              coordinating dental insurance for a local office for two years. I
+              decided that is not what I wanted to do with the rest of my life,
+              so I looked into programs to give me valuable and applicable
+              skills that I could use in the work force. I've always been a
+              problem solver and have always enjoyed that aspect of the coding
+              world. Now, working full time, I am an aspiring Web Developer.
+            </p>
 
-                <p>
-                  Though I am dedicated to my school and furthing myself and my
-                  career I am not just a coder. I am a proud mother of
-                  two...cats. Mia (shamelessly named after Mia Thermopolis from
-                  'The Princess Diaries') and Berlioz (AKA Little B...because
-                  sometimes he is a little b). I am also a huge book nerd and
-                  musical geek. When I have the time, I've been known to hole
-                  myself up and read as many as 8 books a week. I know...maybe a
-                  little much, but it's what I do. I studied musical theatre in
-                  school. That has been my main passion for as long as I can
-                  remember, and that continues to be true even today.
-                </p>
+            <p>
+              Though I am dedicated to my school and furthing myself and my
+              career I am not just a coder. I am a proud mother of two...cats.
+              Mia (shamelessly named after Mia Thermopolis from 'The Princess
+              Diaries') and Berlioz (AKA Little B...because sometimes he is a
+              little b). I am also a huge book nerd and musical geek. When I
+              have the time, I've been known to hole myself up and read as many
+              as 8 books a week. I know...maybe a little much, but it's what I
+              do. I studied musical theatre in school. That has been my main
+              passion for as long as I can remember, and that continues to be
+              true even today.
+            </p>
 
-                <p>
-                  Although I love nerding out on my books or musicals, I also am
-                  very into athletics. Don't hate me Denver, but I am loyal
-                  DiamondBacks fan...not the Rockies. As much of a spectator I
-                  am I also enjoy playing the sport with friends. I am a person
-                  of very vast hobbies and intrests and look forward to what my
-                  future holds.
-                </p>
-              </div>
-            </div>
+            <p>
+              Although I love nerding out on my books or musicals, I also am
+              very into athletics. Don't hate me Denver, but I am loyal
+              DiamondBacks fan...not the Rockies. As much of a spectator I am I
+              also enjoy playing the sport with friends. I am a person of very
+              vast hobbies and intrests and look forward to what my future
+              holds.
+            </p>
           </div>
         </div>
-        <!-- End of Column -->
       </div>
-      <!-- End of Row -->
     </div>
-    <!-- End of container -->
-
-    <footer class="footer mt-5 py-4">
-      <div class="container align-middle justify-center">
-        <p class="mb-0 text-center text-white">Jennifer London | &copy; 2019</p>
-      </div>
+    <footer>
+      <span>Jennifer London | &copy; 2019</span>
     </footer>
   </body>
 </html>

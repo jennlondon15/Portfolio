@@ -1,49 +1,99 @@
+html {
+  min-width: 320px;
+}
+
 body {
-  padding: 0;
-  margin: 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   font-size: 18px;
   line-height: 150%;
   color: #333;
-  background: #ffffff;
-  background: url(../images/bg.png) center repeat;
-  background-size: auto;
+  background-color: #ffffff;
+  background-image: url(../images/bg.png);
   background: linear-gradient(to right, #86523e87, #bfe5ff75),
-    url("../images/bg.png") center repeat;
+    url("../images/bg.png");
+  background-position: center center;
+  background-repeat: round;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-#header > span {
-  font-size: 32px;
+header {
+  background: #fff;
+  margin-bottom: 50px;
+  font-family: "Georgia", "Times", "Times New Roman", serif;
   height: 100px;
-  padding: 36.5px;
-  background-color: #4aaaa5;
+  line-height: 100px;
 }
 
-.list-inline-item > a {
-  color: #777777;
+/* MENU */
+nav {
+  float: right;
 }
 
-.list-inline-item > .active {
-  color: #4aaaa5;
-  text-decoration: none;
-}
-
-.list-inline-item > a:hover {
-  color: #4aaaa5;
-  text-decoration: none;
-}
-
-.card-body > img {
-  float: left;
-  margin-right: 35px;
-  width: 250px;
-  height: 250px;
-}
-
-.card-text p {
-  line-height: 2.2;
-  margin: 0;
+nav a {
+  padding: 0 10px;
   color: #777;
+  text-decoration: none;
+}
+
+nav a.active {
+  color: #4aaaa5;
+}
+
+nav a:hover {
+  color: #4aaaa5;
+}
+
+footer {
+  text-align: center;
+  background-color: #666666;
+  padding: 20px;
+  border-top: 8px solid #4aaaa5;
+  color: white;
+  margin-top: 50px;
+}
+
+form {
+  font-size: 14px;
+  width: 860px;
   font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+/* Main Layout */
+.header-name {
+  background-color: #4aaaa5;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  width: 350px;
+  font-family: "Georgia", "Times", "Times New Roman", serif;
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 1px 1px 1px #ccc;
+  -moz-box-shadow: 0px 1px 1px 1px #ccc;
+  box-shadow: 0px 1px 1px 1px #ccc;
+}
+
+.wrapper {
+  width: 100vw;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#content {
+  min-height: calc(100vh - 50px);
+}
+
+.card {
+  background-color: white;
+  padding: 50px;
+  margin: 0 20px;
 }
 
 .card-title {
@@ -54,6 +104,29 @@ body {
   border-bottom: 3px solid #dddddd;
   font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
 }
+
+.card-body {
+  display: inline-block;
+  width: 100%;
+}
+
+.card-body-image {
+  float: left;
+  margin-right: 35px;
+}
+.card-body-image img {
+  width: 250px;
+  height: 250px;
+}
+
+.card-body-text p {
+  line-height: 2.2;
+  margin: 0;
+  color: #777;
+  font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+/* Form Layout */
 
 .input-group {
   margin-bottom: 20px;
@@ -99,7 +172,7 @@ body {
   color: #777777;
 }
 
-button {
+.input-group > button {
   background-color: #4aaaa5;
   color: white;
   -webkit-transition-duration: 0.4s; /* Safari */
@@ -109,7 +182,7 @@ button {
   margin-top: 20px;
 }
 
-button:hover {
+.input-group > button:hover {
   background-color: white; /* Green */
   border: 2px solid #4aaaa5; /* Green */
   color: black;
@@ -117,33 +190,89 @@ button:hover {
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.footer {
-  background-color: #666666;
-  border-top: 8px solid #4aaaa5;
-}
-
 /* Portfolio Layout */
 
-.d-flex img {
-  width: 265px;
-  height: 160px;
+.grid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.card-img-overlay > p {
-  font-size: 18px;
-  background: #4aaaa5;
-  padding: 10px;
-  margin-top: 115px;
+.grid-wrapper > * {
+  flex: 1 1 300px;
+  align-self: flex-start;
+  padding: 1rem;
 }
 
-figcaption {
+@supports (display: grid) {
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nav_logo {
+    align-self: start;
+  }
+
+  .nav_links {
+    grid-column: 3;
+    align-self: end;
+  }
+
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-gap: 2rem;
+  }
+
+  .grid-wrapper > * {
+    padding: 0;
+  }
+}
+
+.grid-item figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 30% 0;
+  cursor: pointer;
+}
+
+.grid-item figure::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  /* background-image: linear-gradient(0deg, #f093fb 0%, #f5576c 100%); */
+  content: "";
+}
+
+.grid-item figure:hover img {
+  opacity: 0.75;
+}
+
+.grid-item figure:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grid-item figcaption {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  opacity: 1;
   transform: translateY(1rem);
   transition: all 0.3s ease-in-out;
 }
 
-figcaption > span {
+.grid-item figcaption span {
   font-size: 18px;
   background: #4aaaa5;
   padding: 10px;
@@ -151,7 +280,70 @@ figcaption > span {
   margin-bottom: 10px;
 }
 
-figcaption > a {
+.grid-item figcaption a {
   text-decoration: none;
   color: #fff;
+}
+
+.grid-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 980px) {
+}
+@media only screen and (max-width: 768px) {
+  .grid-wrapper {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+
+  form {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .grid-wrapper {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+
+  .navbar {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .nav_logo {
+    grid-template-columns: repeat(1, 1fr);
+    align-self: start;
+  }
+
+  .nav_links {
+    grid-column: 1;
+    align-self: end;
+    background: white;
+    text-align: center;
+  }
+
+  .header-name {
+    width: 100vw;
+  }
+
+  #content {
+    margin-top: 120px;
+  }
+
+  form {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .card-body-image img {
+    width: 100px;
+    height: 100px;
+  }
 }
