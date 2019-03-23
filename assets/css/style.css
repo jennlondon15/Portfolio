@@ -11,87 +11,39 @@ body {
     url("../images/bg.png") center repeat;
 }
 
-header {
-  background: #fff;
+#header > span {
+  font-size: 32px;
   height: 100px;
-  margin-bottom: 50px;
-  font-family: "Georgia", "Times", "Times New Roman", serif;
+  padding: 36.5px;
+  background-color: #4aaaa5;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 22px;
-  overflow: hidden;
-  background-color: #fff;
-  float: right;
+.list-inline-item > a {
+  color: #777777;
 }
 
-li {
-  float: right;
-}
-
-li a {
-  display: block;
-  color: #777;
-  text-align: center;
-  padding: 14px 16px;
+.list-inline-item > .active {
+  color: #4aaaa5;
   text-decoration: none;
 }
 
-li a.active {
+.list-inline-item > a:hover {
   color: #4aaaa5;
+  text-decoration: none;
 }
 
-li a:hover {
-  color: #4aaaa5;
-}
-
-footer {
-  text-align: center;
-  background-color: #666666;
-  padding: 20px;
-  border-top: 8px solid #4aaaa5;
-  color: white;
-  margin-top: 50px;
-}
-
-form {
-  font-size: 14px;
-  width: 860px;
-  font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
-}
-
-/* Main Layout */
-
-.header-name {
-  background-color: #4aaaa5;
+.card-body > img {
   float: left;
-  text-align: center;
-  color: white;
-  font-size: 32px;
-  padding: 36.5px;
-  font-family: "Georgia", "Times", "Times New Roman", serif;
+  margin-right: 35px;
+  width: 250px;
+  height: 250px;
 }
 
-.shadow {
-  -webkit-box-shadow: 0px 1px 1px 1px #ccc;
-  -moz-box-shadow: 0px 1px 1px 1px #ccc;
-  box-shadow: 0px 1px 1px 1px #ccc;
-}
-
-.wrapper {
-  width: 960px;
-  margin: 0 auto;
-}
-
-#content {
-  min-height: calc(100vh - 50px);
-}
-
-.card {
-  background-color: white;
-  padding: 50px;
+.card-text p {
+  line-height: 2.2;
+  margin: 0;
+  color: #777;
+  font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 .card-title {
@@ -102,29 +54,6 @@ form {
   border-bottom: 3px solid #dddddd;
   font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
 }
-
-.card-body {
-  display: inline-block;
-  width: 100%;
-}
-
-.card-body-image {
-  float: left;
-  margin-right: 35px;
-}
-.card-body-image img {
-  width: 250px;
-  height: 250px;
-}
-
-.card-body-text p {
-  line-height: 2.2;
-  margin: 0;
-  color: #777;
-  font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
-}
-
-/* Form Layout */
 
 .input-group {
   margin-bottom: 20px;
@@ -170,7 +99,7 @@ form {
   color: #777777;
 }
 
-.input-group > button {
+button {
   background-color: #4aaaa5;
   color: white;
   -webkit-transition-duration: 0.4s; /* Safari */
@@ -180,7 +109,7 @@ form {
   margin-top: 20px;
 }
 
-.input-group > button:hover {
+button:hover {
   background-color: white; /* Green */
   border: 2px solid #4aaaa5; /* Green */
   color: black;
@@ -188,75 +117,26 @@ form {
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
+.footer {
+  background-color: #666666;
+  border-top: 8px solid #4aaaa5;
+}
+
 /* Portfolio Layout */
 
-.grid-wrapper {
-  display: flex;
-  flex-wrap: wrap;
+.d-flex img {
+  width: 265px;
+  height: 160px;
 }
 
-.grid-wrapper > * {
-  flex: 1 1 300px;
-  align-self: flex-start;
-  padding: 1rem;
-}
-
-@supports (display: grid) {
-  .grid-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    grid-gap: 2rem;
-  }
-
-  .grid-wrapper > * {
-    padding: 0;
-  }
-}
-
-.grid-item figure {
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 30% 0;
-  cursor: pointer;
-}
-
-.grid-item figure::before {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
+figcaption {
   width: 100%;
   height: 100%;
-  /* background-image: linear-gradient(0deg, #f093fb 0%, #f5576c 100%); */
-  content: "";
-}
-
-.grid-item figure:hover img {
-  opacity: 0.75;
-}
-
-.grid-item figure:hover figcaption {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.grid-item figcaption {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  opacity: 1;
   transform: translateY(1rem);
   transition: all 0.3s ease-in-out;
 }
 
-.grid-item figcaption span {
+figcaption > span {
   font-size: 18px;
   background: #4aaaa5;
   padding: 10px;
@@ -264,17 +144,7 @@ form {
   margin-bottom: 10px;
 }
 
-.grid-item figcaption a {
+figcaption > a {
   text-decoration: none;
   color: #fff;
-}
-
-.grid-item img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.3s ease-in-out;
 }

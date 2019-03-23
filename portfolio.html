@@ -1,101 +1,121 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
+    <title>Student Bio</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Portfolio</title>
   </head>
 
   <body>
     <!-- Header -->
-    <header class="shadow">
-      <div class="wrapper">
-        <div class="header-name">
-          <span>Jenn London</span>
-        </div>
-
-        <ul>
-          <li><a href="./portfolio.html" class="active">Portfolio</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./index.html">About</a></li>
+    <nav
+      class="navbar navbar-light bg-white justify-content-between p-0 mb-4"
+      style="height: 100px;"
+    >
+      <div id="header" class="container align-middle">
+        <span class="navbar-brand text-white">Jennifer London</span>
+        <ul class="list-inline mb-0 align-middle">
+          <li class="list-inline-item">
+            <a href="./index.html" class="active">About</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="./contact.html">Contact</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="./portfolio.html">Portfolio</a>
+          </li>
         </ul>
       </div>
-    </header>
-    <!-- End Header -->
+    </nav>
+    <!-- End of Header -->
 
-    <!-- Bio -->
-    <div id="content" class="wrapper">
-      <div class="card">
-        <div class="card-title">
-          <span>Portfolio</span>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card p-5">
+            <h5 class="card-title">Portfolio</h5>
+            <div class="card-body p-0">
+              <section class="d-flex flex-wrap">
+                <article class="d-inline-flex mr-4">
+                  <figure class="m-0">
+                    <img
+                      src="./assets/images/nature-q-c-640-480-3.jpg"
+                      alt="Hangman"
+                    />
+                    <figcaption class="text-center">
+                      <span><a>Hangman</a></span>
+                    </figcaption>
+                  </figure>
+                </article>
+                <article class="d-inline-flex mr-4">
+                  <figure>
+                    <img
+                      src="./assets/images/abstract-q-c-640-480-4.jpg"
+                      alt="RPG Game"
+                    />
+                    <figcaption class="text-center">
+                      <span><a>RPG Game</a></span>
+                    </figcaption>
+                  </figure>
+                </article>
+                <article class="d-inline-flex mr-4">
+                  <figure>
+                    <img
+                      src="./assets/images/city-q-c-640-480-10.jpg"
+                      alt="Trivia Game"
+                    />
+                    <figcaption class="text-center">
+                      <span><a>Trivia Game</a></span>
+                    </figcaption>
+                  </figure>
+                </article>
+                <article class="d-inline-flex mr-4">
+                  <figure>
+                    <img
+                      src="./assets/images/fashion-q-c-640-480-3.jpg"
+                      alt="Rutgers Info Widget"
+                    />
+                    <figcaption class="text-center">
+                      <span><a>Rutgers Info Widget</a></span>
+                    </figcaption>
+                  </figure>
+                </article>
+                <article class="d-inline-flex mr-4">
+                  <figure>
+                    <img
+                      src="./assets/images/sports-q-c-640-480-10.jpg"
+                      alt="Rock Paper Scissors"
+                    />
+                    <figcaption class="text-center">
+                      <span><a>Rock Paper Scissors</a></span>
+                    </figcaption>
+                  </figure>
+                </article>
+              </section>
+              <!-- End of Flex Section -->
+            </div>
+            <!-- End of Card Body -->
+          </div>
+          <!-- End of Card -->
         </div>
-        <div class="card-body">
-          <!-- End Bio -->
-
-          <!-- Start Grid -->
-          <section class="grid-wrapper">
-            <article class="grid-item">
-              <figure>
-                <img
-                  src="./assets/images/nature-q-c-640-480-3.jpg"
-                  alt="Hangman"
-                />
-                <figcaption>
-                  <span><a>Hangman</a></span>
-                </figcaption>
-              </figure>
-            </article>
-            <article class="grid-item">
-              <figure>
-                <img
-                  src="./assets/images/abstract-q-c-640-480-4.jpg"
-                  alt="RPG Game"
-                />
-                <figcaption>
-                  <span><a>RPG Game</a></span>
-                </figcaption>
-              </figure>
-            </article>
-            <article class="grid-item">
-              <figure>
-                <img
-                  src="./assets/images/city-q-c-640-480-10.jpg"
-                  alt="Trivia Game"
-                />
-                <figcaption>
-                  <span><a>Trivia Game</a></span>
-                </figcaption>
-              </figure>
-            </article>
-            <article class="grid-item">
-              <figure>
-                <img
-                  src="./assets/images/fashion-q-c-640-480-3.jpg"
-                  alt="Rutgers Info Widget"
-                />
-                <figcaption>
-                  <span><a>Rutgers Info Widget</a></span>
-                </figcaption>
-              </figure>
-            </article>
-            <article class="grid-item">
-              <figure>
-                <img
-                  src="./assets/images/sports-q-c-640-480-10.jpg"
-                  alt="Rock Paper Scissors"
-                />
-                <figcaption>
-                  <span><a>Rock Paper Scissors</a></span>
-                </figcaption>
-              </figure>
-            </article>
-          </section>
-          <!-- End Grid -->
-        </div>
+        <!-- End of Column -->
       </div>
+      <!-- End of Row -->
     </div>
-    <footer>
-      <span>Jennifer London | &copy; 2019</span>
+    <!-- End of container -->
+
+    <footer class="footer mt-5 py-4">
+      <div class="container align-middle justify-center">
+        <p class="mb-0 text-center text-white">Jennifer London | &copy; 2019</p>
+      </div>
     </footer>
   </body>
 </html>
