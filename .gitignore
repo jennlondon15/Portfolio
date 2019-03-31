@@ -1,3 +1,4 @@
+###################
 # Compiled source #
 ###################
 *.com
@@ -20,3 +21,7 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Reset CSS  files #
+###################
+reset.css
