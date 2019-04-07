@@ -1,0 +1,96 @@
+html,
+body,
+p,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url(../images/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: #000ab1;
+  font-family: 'Indie Flower', cursive;
+  font-size: larger;
+}
+
+.container {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-auto-rows: minmax(100px, auto); */
+  grid-gap: 0.5rem;
+  grid-template-areas:
+    'header'
+    'rules'
+    'state'
+    'button-row'
+    'score';
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: lightsteelblue;
+  padding: 10px;
+}
+
+.header {
+  grid-area: header;
+  text-align: center;
+}
+
+.rules {
+  grid-area: rules;
+  line-height: 1.5rem;
+}
+
+.state {
+  grid-area: state;
+}
+
+.state-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  grid-gap: 2rem;
+}
+
+.button-row {
+  grid-area: button-row;
+  justify-self: center;
+  align-self: center;
+  display: inline-flex;
+}
+
+.button-row > img {
+  height: 150px;
+  width: 150px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+.score {
+  grid-area: score;
+  text-align: center;
+}
+
+.scoreKeeper {
+  justify-self: start;
+}
+
+.game-state {
+  color: #2c9e00;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.numGuess {
+  justify-self: end;
+  text-align: center;
+}

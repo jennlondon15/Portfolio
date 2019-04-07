@@ -1,8 +1,8 @@
-# Broadway Hangman
+# Gem Game
 
-A fun styled game with a subtle throwback to the eccentric 1980's on Broadway. Guess some of the best shows to premier and a few lesser known ones too!
+A interactive guessing game! Use your powers of reason and deduction to guess the number given by clicking on the gems!
 
-![Hangman Game](https://user-images.githubusercontent.com/46270669/55283438-9b3c7400-5320-11e9-8d4d-2296192b827f.png)
+![Gem Game](https://user-images.githubusercontent.com/46270669/55689170-aa35ae80-593e-11e9-9439-98a2fc2b6860.png)
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ I suggest these applications 🤘
 ### Installing
 
 ```git
-git clone git@github.com:jennlondon15/Word-Guess-Game.git
+git clone git@github.com:jennlondon15/Gem-Game.git
 ```
 
 You can then simply open the `index.html` file in your browser and play the game. Good luck!!!
