@@ -1,67 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>The Magnificent Gem Game!!!</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Disneyland Trivia</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Indie+Flower"
-      rel="stylesheet"
+      rel="shortcut icon"
+      href="./assets/images/favicon.ico"
+      type="image/x-icon"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-2.2.0.min.js"
+    ></script>
+    <script src="./assets/javascript/cursor.js"></script>
   </head>
+
   <body>
     <div class="container">
-      <div class="header card">
-        <h1>Gem Collector!</h1>
-      </div>
-      <div class="rules card">
-        <p>
-          A random number will appear. You must use your power of deduction and
-          reasoning to use the four gems below in order to guess the exact
-          number diplayed.
-          <br />
-          <br />
-          By clicking on one of the four gems you will add a randomly assigned
-          amount of points to your score, the assigned number will change after
-          every round.
-          <br />
-          <br />
-          The way to win is easy, by clicking on the gems you must get your
-          score to match that of the random number given. If you cannot, you
-          lose. Good luck! And remember....be one with the gems.
-        </p>
-      </div>
-
-      <!-- Card display for random number -->
-      <div class="state card">
-        <div class="state-layout">
-          <div class="numGuess">
-            <p>Number to Guess:</p>
-            <span class="game-state"></span>
-          </div>
-          <div class="scoreKeeper">
-            <p id="wins">Wins: <span>0</span></p>
-            <p id="losses">Losses: <span>0</span></p>
-          </div>
+      <div class="card">
+        <!-- header -->
+        <div class="header">
+          <h1>Disneyland Trivia!</h1>
+        </div>
+        <div class="timer"></div>
+        <div class="question"></div>
+        <div class="answers">
+          <button class="start">Start</button>
         </div>
       </div>
-
-      <!-- Display of gem- images -->
-      <div class="button-row">
-        <img id="gem1" src="./assets/images/gem-1.png" alt="gem-1" />
-        <img id="gem2" src="./assets/images/gem-2.png" alt="gem-2" />
-        <img id="gem3" src="./assets/images/gem-3.png" alt="gem-3" />
-        <img id="gem4" src="./assets/images/gem-4.png" alt="gem-4" />
-      </div>
-
-      <!-- Display user score as they guess -->
-      <div class="score card">
-        <p>Your total score is:</p>
-        <span class="game-state"></span>
-      </div>
     </div>
-    <script src="./assets/javascript/game.js"></script>
-    <script src="./assets/javascript/particleCursour.js"></script>
+
+    <script src="./assets/javascript/questions.js"></script>
+    <script src="./assets/javascript/app.js"></script>
   </body>
 </html>
