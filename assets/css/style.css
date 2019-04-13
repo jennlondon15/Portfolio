@@ -11,8 +11,7 @@
 @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
 
 * {
-  cursor: url(https://cur.cursors-4u.net/toons/too-9/too909.ani),
-    url(https://cur.cursors-4u.net/toons/too-9/too909.png), auto !important;
+  cursor: url(./tinkerbell.ani), url(../images/tinkerbell.png), auto !important;
 }
 
 html,
