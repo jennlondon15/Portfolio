@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'Disney';
-  src: url('http://static.tumblr.com/npggxjg/VdAlzs1dx/disney.otf');
+  src: url('https://static.tumblr.com/npggxjg/VdAlzs1dx/disney.otf');
 }
 
 @font-face {
   font-family: 'Disneyland';
-  src: url('http://static.tumblr.com/npggxjg/xGim6plqo/disneyland.ttf');
+  src: url('https://static.tumblr.com/npggxjg/xGim6plqo/disneyland.ttf');
 }
 
 @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
 
 * {
-  cursor: url(http://cur.cursors-4u.net/toons/too-9/too909.ani),
-    url(http://cur.cursors-4u.net/toons/too-9/too909.png), auto !important;
+  cursor: url(https://cur.cursors-4u.net/toons/too-9/too909.ani),
+    url(https://cur.cursors-4u.net/toons/too-9/too909.png), auto !important;
 }
 
 html,
