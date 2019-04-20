@@ -61,7 +61,7 @@ $(document).ready(function() {
     if (debug) console.log('QueryURL', queryURL);
 
     // Data fetcher
-    $.get(queryURL, data => buildGiphy(data));
+    $.ajax({ url: queryURL, success: data => buildGiphy(data) });
 
     document.title = `Searching for ${query}`;
   }
@@ -82,7 +82,7 @@ $(document).ready(function() {
     event.preventDefault();
     const newShow = $('#pixarInput').val();
     $('#pixarInput').val('');
-    displayButtons(newShow);
+    displayButtons(titleCase(newShow));
     displayPixar(titleCase(newShow));
   });
 
@@ -99,7 +99,7 @@ $(document).ready(function() {
   }
   // Click event on button with id of "show" executes displayPixar function
   $(document).on('click', '#show', query =>
-    displayPixar(query.target.innerText)
+    displayPixar(query.target.innerText),
   );
 
   // Click event on gifs with class of "pixarGiphy" executes pausePlayGifs function
