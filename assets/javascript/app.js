@@ -55,7 +55,7 @@ $(document).ready(function() {
 
   // Create div with respective still and animate image sources with "data-state", "data-still" and "data-animate" attributes
   function displayPixar(query) {
-    const queryURL = `https://api.giphy.com/v1/gifs/search?q=${query}&rating=${Rating}&api_key=${ApiKey}`;
+    const queryURL = `//api.giphy.com/v1/gifs/search?q=${query}&rating=${Rating}&api_key=${ApiKey}`;
 
     if (debug) console.log('Query', query);
     if (debug) console.log('QueryURL', queryURL);
