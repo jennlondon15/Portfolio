@@ -11,7 +11,7 @@ body {
 }
 
 body {
-  background: url('https://res.cloudinary.com/jenn-dev/image/upload/w_auto,f_auto,o_50/v1555715928/bg_hvvvxh.png')
+  background: url('../images/bg.webp')
     no-repeat center center fixed;
   background-size: cover;
   background-color: transparent;
