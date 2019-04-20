@@ -1,4 +1,4 @@
-@import url('//fonts.googleapis.com/css?family=Fredericka+the+Great');
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
 
 html,
 body {
@@ -11,7 +11,7 @@ body {
 }
 
 body {
-  background: url('//res.cloudinary.com/jenn-dev/image/upload/w_auto,f_auto/v1555715928/bg_hvvvxh.png')
+  background: url('https://res.cloudinary.com/jenn-dev/image/upload/w_auto,f_auto/v1555715928/bg_hvvvxh.png')
     no-repeat center center fixed;
   background-size: cover;
   background-color: rgba(255, 255, 255, 0.4);
