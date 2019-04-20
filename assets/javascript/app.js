@@ -1,170 +1,107 @@
-// game play
-const game = {
-  currentQuestion: 0,
-  count: 30,
-  correct: 0,
-  incorrect: 0,
-  question: $('.question'),
-  answers: $('.answers'),
-  delay: 5000,
-
-  // timer count
-  countdown() {
-    game.count -= 1;
-    $('#timed-number').html(game.count);
-
-    // timer: time up
-    if (game.count === 0) {
-      game.timeUp();
-    }
-  },
-
-  loadQuestion() {
-    timer = setInterval(game.countdown, 1000);
-    game.question.html(`<h2>${questions[game.currentQuestion].question}</h2>`);
-    $('.timer').show();
-    game.answers.show();
-    game.answers.empty(); // clear answer buttons
-    for (
-      let i = 0;
-      i < questions[game.currentQuestion].answers.length;
-      i += 1
-    ) {
-      game.answers.append(
-        `<button class="answer-button" class="button">${
-          questions[game.currentQuestion].answers[i]
-        }</button>`,
-      );
-    }
-  },
-
-  // calling next question
-  nextQuestion() {
-    $('#timed-number').html('30');
-    game.currentQuestion += 1;
-    game.count = 30;
-    game.loadQuestion();
-  },
-
-  // time up message
-  timeUp() {
-    clearInterval(timer);
-    $('#timed-number').html(game.count);
-    $('.timer').hide();
-    game.answers.hide();
-    game.question.html('<h2>If you dont try, youll never know.</h2>');
-    game.question.append(
-      `<h3>The Answer Is: ${questions[game.currentQuestion].correctAnswer}`,
-      `<img src="${questions[game.currentQuestion].image}"/>`,
-    );
-
-    if (game.currentQuestion === questions.length - 1) {
-      setTimeout(game.results, game.delay);
-    } else {
-      setTimeout(game.nextQuestion, game.delay);
-    }
-  },
-
-  // calling if answer right or wrong
-  clicked(e) {
-    clearInterval(timer);
-
-    if (
-      e.target.textContent === questions[game.currentQuestion].correctAnswer
-    ) {
-      game.answeredCorrectly();
-    } else {
-      game.answeredIncorrectly();
-    }
-  },
-
-  // incorrect message
-  answeredIncorrectly() {
-    game.incorrect += 1;
-    $('.timer').hide();
-    game.answers.hide();
-    game.question.html(`<h2>Oh dear, what an awkward situation...</h2>`);
-    game.question.append(
-      `<h3>The Answer Is: ${
-        questions[game.currentQuestion].correctAnswer
-      }</h3>`,
-      `<img src="${questions[game.currentQuestion].image}"/>`,
-    );
-
-    if (game.currentQuestion === questions.length - 1) {
-      setTimeout(game.results, game.delay);
-    } else {
-      setTimeout(game.nextQuestion, game.delay);
-    }
-  },
-
-  // correct message
-  answeredCorrectly() {
-    game.correct += 1;
-    $('.timer').hide();
-    game.answers.hide();
-    game.question.html('<h2>See? All it takes is faith and trust.</h2>');
-    game.question.append(
-      `<img src="${questions[game.currentQuestion].image}"/>`,
-    );
-
-    if (game.currentQuestion === questions.length - 1) {
-      setTimeout(game.results, game.delay);
-    } else {
-      setTimeout(game.nextQuestion, game.delay);
-    }
-  },
-
-  // result page message
-  results() {
-    clearInterval(timer);
-
-    game.question.html(
-      '<h2>Goodbye? Oh no, please. Can’t we just go back to page one and start all over again?</h2>',
-    );
-    $('#timed-number').html(game.count);
-    game.question.append(
-      `<h3>Answered Correctly: ${game.correct}</h3><h3>Answered Incorrectly: ${
-        game.incorrect
-      }</h3><h3>Left Unanswered: ${questions.length -
-        (game.incorrect + game.correct)}</h3>`,
-    );
-    game.answers.empty(); // clear answer buttons
-    game.answers.append('<button id="play-again">Play Again</button>');
-    game.answers.fadeIn('slow');
-  },
-  reset() {
-    game.currentQuestion = 0;
-    game.count = 30;
-    game.correct = 0;
-    game.incorrect = 0;
-    game.loadQuestion();
-  },
-};
+const debug = false;
 
 $(document).ready(function() {
-  // click event: play again button
-  $(document).on('click', '#play-again', function() {
-    game.reset();
-  });
+  const ApiKey = 'EGbVEEahGpJcHd3KjMIMGPxom0aD59Py';
+  const Rating = 'pg';
 
-  // click event: answer selected
-  $(document).on('click', '.answer-button', function(e) {
-    game.clicked(e);
-    $('.timer').hide();
-  });
-
-  // click event: start button
-  $(document).on('click', '.start', function() {
-    $('.question, .timer').show();
-    $('.timer').prepend(
-      '<h2>Time Remaining: <span id="timed-number">30</span> Seconds</h2>',
-    );
-    game.loadQuestion();
-    $('.start').remove();
-  });
-
-  if ($('.start').length) {
-    $('.question, .timer').hide();
+  function titleCase(str) {
+    return str
+      .trim()
+      .toLowerCase()
+      .split(' ')
+      .map(function(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(' ');
   }
+
+  const buildGiphy = response => {
+    const results = response.data;
+    if (debug) console.log('results', results);
+
+    const gifs = results.map(result => {
+      const { rating, images } = result;
+      const { fixed_width, fixed_width_still } = images;
+
+      const showDiv = $("<div class='col-sm-4'>");
+
+      const p = $('<p>')
+        .text(`Rating: ${rating.toUpperCase()}`)
+        .hide();
+      const defaultAnimatedSrc = fixed_width.url;
+      const staticSrc = fixed_width_still.url;
+      const showImage = $('<img>')
+        .attr('src', staticSrc)
+        .attr('class', 'pixarGiphy')
+        .attr('data-state', 'still')
+        .attr('data-still', staticSrc)
+        .attr('data-animate', defaultAnimatedSrc);
+
+      showDiv.append(p).append(showImage);
+
+      return $('.gifArea')
+        .prepend(showDiv)
+        .hide();
+    });
+    // Wait for all requests, and then setState
+    Promise.all(gifs).then(() => {
+      $('.gifArea')
+        .fadeIn(1000)
+        .slideDown(600, function() {
+          $('p').slideDown(400);
+        });
+    });
+  };
+
+  // Create div with respective still and animate image sources with "data-state", "data-still" and "data-animate" attributes
+  function displayPixar(query) {
+    const queryURL = `https://api.giphy.com/v1/gifs/search?q=${query}&rating=${Rating}&api_key=${ApiKey}`;
+
+    if (debug) console.log('Query', query);
+    if (debug) console.log('QueryURL', queryURL);
+
+    // Data fetcher
+    $.get(queryURL, data => buildGiphy(data));
+
+    document.title = `Searching for ${query}`;
+  }
+
+  // Function iterates through topics array to display button with array values in "myButtons" section of HTML
+  const displayButtons = data => {
+    if (data) {
+      const a = $('<button class="button">')
+        .attr('id', 'show')
+        .attr('data-search', data)
+        .text(data);
+      return $('.movies').append(a);
+    }
+  };
+
+  // Submit button click event takes search term from form input, trims and pushes to topics array, displays button
+  $('#addMovie').on('click', event => {
+    event.preventDefault();
+    const newShow = $('#pixarInput').val();
+    $('#pixarInput').val('');
+    displayButtons(newShow);
+    displayPixar(titleCase(newShow));
+  });
+
+  // Function accesses "data-state" attribute and depending on status, changes image source to "data-animate" or "data-still"
+  function pausePlayGifs() {
+    const state = $(this).attr('data-state');
+    if (state === 'still') {
+      $(this).attr('src', $(this).attr('data-animate'));
+      $(this).attr('data-state', 'animate');
+    } else {
+      $(this).attr('src', $(this).attr('data-still'));
+      $(this).attr('data-state', 'still');
+    }
+  }
+  // Click event on button with id of "show" executes displayPixar function
+  $(document).on('click', '#show', query =>
+    displayPixar(query.target.innerText)
+  );
+
+  // Click event on gifs with class of "pixarGiphy" executes pausePlayGifs function
+  $(document).on('click', '.pixarGiphy', pausePlayGifs);
 });

@@ -1,36 +1,65 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <title>Disneyland Trivia</title>
+    <meta charset="utf-8" />
+    <title>Pixar Gifs!</title>
     <link
-      rel="shortcut icon"
-      href="./assets/images/favicon.ico"
-      type="image/x-icon"
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <script
-      type="text/javascript"
-      src="https://code.jquery.com/jquery-2.2.0.min.js"
-    ></script>
-    <script src="./assets/javascript/cursor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
 
   <body>
-    <div class="container">
-      <div class="card">
-        <!-- header -->
-        <div class="header">
-          <h1>Disneyland Trivia!</h1>
-        </div>
-        <div class="timer"></div>
-        <div class="question"></div>
-        <div class="answers">
-          <button class="start">Start</button>
-        </div>
-      </div>
-    </div>
+    <div class="header">
+      <h1>Pixar Gif Search</h1>
 
-    <script src="./assets/javascript/questions.js"></script>
-    <script src="./assets/javascript/app.js"></script>
+      <h4>
+        Click the buttons to display GIPHYs of your favorite Pixar movies.
+      </h4>
+
+      <h4>
+        Click the GIPHYs to pause and play
+      </h4>
+
+      <h4>
+        Search to add more buttons!
+      </h4>
+
+      <form class="form-inline" id="pixarSearch">
+        <label for="pixarInput">Search for a Pixar movie or character</label>
+        <input type="text" id="pixarInput" placeholder="Search..." />
+        <!-- Button triggers movies to be added -->
+        <button id="addMovie">Submit</button>
+      </form>
+    </div>
+    <!-- End of Header -->
+
+    <!-- Start Button Row -->
+    <div class="movies">
+      <button class="button" id="show" data-search="Finding Nemo">
+        Finding Nemo
+      </button>
+      <button class="button" id="show" data-search="Toy Story">
+        Toy Story
+      </button>
+      <button class="button" id="show" data-search="Monsters Inc.">
+        Monsters Inc.
+      </button>
+      <button class="button" id="show" data-search="Inside Out">
+        Inside Out
+      </button>
+    </div>
+    <!-- End Button Row -->
+
+    <!-- Start Gifs -->
+    <div class="row row-no-gutters">
+      <div class="gifArea"></div>
+    </div>
+    <!-- End Gifs -->
+
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
   </body>
 </html>

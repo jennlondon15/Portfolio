@@ -1,131 +1,76 @@
-@font-face {
-  font-family: 'Disney';
-  src: url('https://static.tumblr.com/npggxjg/VdAlzs1dx/disney.otf');
-}
-
-@font-face {
-  font-family: 'Disneyland';
-  src: url('https://static.tumblr.com/npggxjg/xGim6plqo/disneyland.ttf');
-}
-
-@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
-
-* {
-  cursor: url(./tinkerbell.ani), url(../images/tinkerbell.png), auto !important;
-}
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
 
 html,
 body {
+  font-family: 'Fredericka the Great', Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  color: black;
+  margin: 0;
+  padding: 0;
   height: 100vh;
 }
 
 body {
-  background: url(../images/bg.jpg) no-repeat center center fixed;
+  background: url('https://res.cloudinary.com/jenn-dev/image/upload/w_auto,f_auto/v1555715928/bg_hvvvxh.png')
+    no-repeat center center fixed;
   background-size: cover;
-  margin: 0;
-  padding: 0;
-  font-family: 'Disneyland', Arial, Helvetica, sans-serif;
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: lighten;
 }
 
-h2,
-span {
+h4 {
+  line-height: 2rem;
   margin: 0;
-  font-size: 3rem;
-  letter-spacing: 2px;
+}
+
+p {
+  margin: 1rem auto;
+  background: #a94442;
+  width: 200px;
+  color: white;
 }
 
 button {
-  font-family: 'Shadows Into Light', cursive, sans-serif;
-  font-size: 1.5rem;
-  border-radius: 1rem;
+  background: #fdca4a;
+  color: white;
+  padding: 1rem;
+  margin: 0.5rem;
+  font-size: 18pt;
 }
 
-.container {
-  margin: 2rem;
-  display: grid;
-  align-items: center;
-  height: 100vh;
+button:hover {
+  color: white;
+  background: #ff1918;
 }
 
-.card {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 0.5rem;
-  grid-template-areas:
-    'header'
-    'timer'
-    'question'
-    'answers';
-  background-color: rgba(31, 31, 31, 0.47);
-  border-style: solid;
-  border-width: 0.5px;
-  color: beige;
-  padding: 2rem;
-  justify-items: center;
+form {
+  margin: 0 auto;
+  text-align: center;
+}
+
+form > input {
+  border: 0;
+  padding: 0.8rem;
+  margin: 0 0.5rem;
+}
+
+form > button {
+  font-size: 12pt;
+  padding: 0.8rem 1rem;
 }
 
 .header {
-  grid-area: header;
   text-align: center;
-  padding: 0.5rem;
 }
 
-.header > h1 {
-  font-family: 'Disney', Arial, Helvetica, sans-serif;
-  font-size: 6rem;
-  padding: 1rem;
-  margin: 0;
-  color: beige;
-}
-
-.timer {
-  grid-area: timer;
-  padding: 0.5rem;
-  color: beige;
-}
-
-.question {
-  grid-area: question;
+.movies {
+  margin: 1.5rem auto;
   text-align: center;
-  padding: 0.5rem;
-  line-height: 2rem;
-  color: beige;
 }
 
-.question > img {
-  min-width: 40%;
-  max-width: 80%;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
-}
-
-.question > h3 {
-  margin: 0;
+.gifArea {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
   padding: 1rem;
-  font-size: 2.5rem;
-  text-shadow: 2px 3px 6px rgb(169, 64, 87);
-}
-.answers {
-  grid-area: answers;
-  display: grid;
-  grid-gap: 10px;
-  margin-top: 10px;
-}
-
-.answers > button {
-  padding: 10px;
-  background: rgba(169, 64, 87, 0.75);
-  color: white;
-  border: 0;
-  width: 100%;
-  min-width: 300px;
-}
-.answers > button:hover {
-  color: black;
-  background: rgba(249, 191, 25, 0.75);
-}
-
-.answers > .start {
-  padding: 5px;
-  font-size: 2rem;
 }
