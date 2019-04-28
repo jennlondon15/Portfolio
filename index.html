@@ -1,122 +1,66 @@
 <!DOCTYPE html>
 
-<html lang="en-us">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Train Schedule</title>
-
-    <!--Bootstrap-->
+    <meta charset="utf-8" />
+    <title>Pixar Gifs!</title>
+    <link rel="icon" type="image/png" href="./assets/images/icon.png" />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
-    <link
-      href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/theme-default.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <!--Firebase Link-->
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
-    <!--jQuery-->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-    <!-- Link to Moment.js -->
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
 
   <body>
-    <div class="container">
-      <div class="header">
-        <h1>Northwest Train Routes</h1>
-        <h3>Your Adventure Begins Here</h3>
-      </div>
+    <div class="header">
+      <h1>Pixar Gif Search</h1>
 
-      <div class="card border">
-        <div class="card-header">
-          Current Train Schedule
-        </div>
-        <div class="card-body">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Train Name</th>
-                <th>Destination</th>
-                <th>Frequency (min)</th>
-                <th>Next Arrival</th>
-                <th>Minutes Away</th>
-              </tr>
-            </thead>
-            <tbody id="full-table"></tbody>
-          </table>
-        </div>
-      </div>
-      <br />
+      <h4>
+        Click the buttons to display GIPHYs of your favorite Pixar movies.
+      </h4>
 
-      <!--Add Train-->
-      <div class="card border">
-        <div class="card-header">Add Train</div>
-        <div class="card-body">
-          <form id="newTrain" autocomplete="off" name="newTrain">
-            <!-- form class="needs-validation" novalidate> -->
-            <div class="form-group">
-              <label for="train-name">Name</label>
-              <input
-                class="form-control"
-                id="train-name"
-                type="text"
-                name="name"
-                data-validation="alphanumeric"
-                data-validation-allowing="-_ "
-                data-validation-help="Whats the name of the train?"
-                data-validation-length="max50"
-              />
-            </div>
-            <div class="form-group">
-              <label for="train-destination">Destination</label>
-              <input
-                class="form-control"
-                id="train-destination"
-                type="text"
-                name="destination"
-                data-validation="alphanumeric"
-                data-validation-allowing="-_ "
-                data-validation-help="Where is the train going?"
-                data-validation-length="max25"
-              />
-            </div>
-            <div class="form-group" id="firstTime">
-              <label for="train-first-time">First Scheduled Time</label>
-              <input
-                class="form-control timepicker"
-                id="train-first-time"
-                type="text"
-                name="firstTime"
-                data-validation="time"
-                data-validation-help="Please enter in HH:mm format"
-              />
-            </div>
-            <div class="form-group">
-              <label for="train-frequency">Next Arrival Frequency (mins)</label>
-              <input
-                class="form-control"
-                id="train-frequency"
-                type="text"
-                name="frequency"
-                data-validation="number"
-                data-validation-allowing="range[1;1440]"
-                data-validation-help="Between 1 - 1440 minutes"
-              />
-            </div>
-            <button class="button">
-              Submit
-            </button>
-          </form>
-        </div>
-      </div>
+      <h4>
+        Click the GIPHYs to pause and play
+      </h4>
+
+      <h4>
+        Search to add more buttons!
+      </h4>
+
+      <form class="form-inline" id="pixarSearch">
+        <label for="pixarInput">Search for a Pixar movie or character</label>
+        <input type="text" id="pixarInput" placeholder="Search..." />
+        <!-- Button triggers movies to be added -->
+        <button id="addMovie">Submit</button>
+      </form>
     </div>
+    <!-- End of Header -->
 
-    <!--JavaScript-->
-    <script src="./assets/javascript/app.js"></script>
+    <!-- Start Button Row -->
+    <div class="movies">
+      <button class="button" id="show" data-search="Finding Nemo">
+        Finding Nemo
+      </button>
+      <button class="button" id="show" data-search="Toy Story">
+        Toy Story
+      </button>
+      <button class="button" id="show" data-search="Monsters Inc.">
+        Monsters Inc.
+      </button>
+      <button class="button" id="show" data-search="Inside Out">
+        Inside Out
+      </button>
+    </div>
+    <!-- End Button Row -->
+
+    <!-- Start Gifs -->
+    <div class="row row-no-gutters">
+      <div class="gifArea"></div>
+    </div>
+    <!-- End Gifs -->
+
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
   </body>
 </html>
