@@ -1,107 +1,111 @@
-const debug = false;
+const debug = true;
+
+// Initialize Firebase
+const config = {
+  apiKey: 'AIzaSyBqFiBStgIz5Hkov4QftUvDG2t3j3t1P3A',
+  authDomain: 'train-scheduler-3b0af.firebaseapp.com',
+  databaseURL: 'https://train-scheduler-3b0af.firebaseio.com',
+  projectId: 'train-scheduler-3b0af',
+  storageBucket: 'train-scheduler-3b0af.appspot.com',
+  messagingSenderId: '110008155341',
+};
+firebase.initializeApp(config);
+
+const timeHandler = options => {
+  const frequency = parseInt(options.frequency);
+  const timeConvert = moment(options.firstTime, 'HH:mm').subtract(1, 'years');
+  const timeDifference = moment().diff(moment(timeConvert), 'minutes');
+  const timeRemaining = timeDifference % frequency;
+  const timeAway = frequency - timeRemaining;
+  const nextArrival = moment()
+    .add(timeAway, 'minutes')
+    .format('HH:mm');
+
+  return {
+    timeAway,
+    nextArrival,
+  };
+};
+
+function titleCase(str) {
+  return str
+    .trim()
+    .toLowerCase()
+    .split(' ')
+    .map(function(word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(' ');
+}
+
+function resetInputs() {
+  $('#newTrain')
+    .get(0)
+    .reset();
+}
 
 $(document).ready(function() {
-  const ApiKey = 'EGbVEEahGpJcHd3KjMIMGPxom0aD59Py';
-  const Rating = 'pg';
+  const db = firebase.database().ref('trains');
 
-  function titleCase(str) {
-    return str
-      .trim()
-      .toLowerCase()
-      .split(' ')
-      .map(function(word) {
-        return word.charAt(0).toUpperCase() + word.slice(1);
-      })
-      .join(' ');
-  }
+  // * Stream new entries back to front end table
+  db.on('child_added', function(childSnapshot) {
+    let content = '';
+    const val = childSnapshot.val();
 
-  const buildGiphy = response => {
-    const results = response.data;
-    if (debug) console.log('results', results);
+    if (debug) console.log('val:', val);
 
-    const gifs = results.map(result => {
-      const { rating, images } = result;
-      const { fixed_width, fixed_width_still } = images;
-
-      const showDiv = $("<div class='col-sm-4'>");
-
-      const p = $('<p>')
-        .text(`Rating: ${rating.toUpperCase()}`)
-        .hide();
-      const defaultAnimatedSrc = fixed_width.url;
-      const staticSrc = fixed_width_still.url;
-      const showImage = $('<img>')
-        .attr('src', staticSrc)
-        .attr('class', 'pixarGiphy')
-        .attr('data-state', 'still')
-        .attr('data-still', staticSrc)
-        .attr('data-animate', defaultAnimatedSrc);
-
-      showDiv.append(p).append(showImage);
-
-      return $('.gifArea')
-        .prepend(showDiv)
-        .hide();
-    });
-    // Wait for all requests, and then setState
-    Promise.all(gifs).then(() => {
-      $('.gifArea')
-        .fadeIn(1000)
-        .slideDown(600, function() {
-          $('p').slideDown(400);
-        });
-    });
-  };
-
-  // Create div with respective still and animate image sources with "data-state", "data-still" and "data-animate" attributes
-  function displayPixar(query) {
-    const queryURL = `https://api.giphy.com/v1/gifs/search?q=${query}&rating=${Rating}&api_key=${ApiKey}`;
-
-    if (debug) console.log('Query', query);
-    if (debug) console.log('QueryURL', queryURL);
-
-    // Data fetcher
-    $.ajax({ url: queryURL, success: data => buildGiphy(data) });
-
-    document.title = `Searching for ${query}`;
-  }
-
-  // Function iterates through topics array to display button with array values in "myButtons" section of HTML
-  const displayButtons = data => {
-    if (data) {
-      const a = $('<button class="button">')
-        .attr('id', 'show')
-        .attr('data-search', data)
-        .text(data);
-      return $('.movies').append(a);
-    }
-  };
-
-  // Submit button click event takes search term from form input, trims and pushes to topics array, displays button
-  $('#addMovie').on('click', event => {
-    event.preventDefault();
-    const newShow = $('#pixarInput').val();
-    $('#pixarInput').val('');
-    displayButtons(titleCase(newShow));
-    displayPixar(titleCase(newShow));
+    content += '<tr>';
+    content += `<td id="name">${val.name}</td>`;
+    content += `<td id="destination">${val.destination}</td>`;
+    content += `<td id="frequency">${val.frequency}</td>`;
+    content += `<td id="next-arrival">${timeHandler(val).nextArrival}</td>`;
+    content += `<td id="minutes-away">${timeHandler(val).timeAway}</td>`;
+    content += '</tr>';
+    $('#full-table').append(content);
   });
 
-  // Function accesses "data-state" attribute and depending on status, changes image source to "data-animate" or "data-still"
-  function pausePlayGifs() {
-    const state = $(this).attr('data-state');
-    if (state === 'still') {
-      $(this).attr('src', $(this).attr('data-animate'));
-      $(this).attr('data-state', 'animate');
-    } else {
-      $(this).attr('src', $(this).attr('data-still'));
-      $(this).attr('data-state', 'still');
-    }
-  }
-  // Click event on button with id of "show" executes displayPixar function
-  $(document).on('click', '#show', query =>
-    displayPixar(query.target.innerText),
-  );
+  // * Form Validator
+  $.validate({
+    form: '#newTrain',
+    modules: 'date',
+    errorMessagePosition: 'top', // Instead of 'inline' which is default
+    scrollToTopOnError: false, // Set this property to true on longer forms
+    addValidClassOnAll: true,
+    onSuccess($form) {
+      if (debug) console.log(`The form ${$form.attr('id')} is valid!`);
+      submitForm();
+      return false; // Will stop the submission of the form
+    },
+    onError($form) {
+      console.log(`Validation of form ${$form.attr('id')} failed!`);
+    },
+  });
 
-  // Click event on gifs with class of "pixarGiphy" executes pausePlayGifs function
-  $(document).on('click', '.pixarGiphy', pausePlayGifs);
+  // * Form Handler - Submits to Firebase DB
+  function submitForm(e) {
+    const data = {
+      name: titleCase($('#train-name').val()),
+      destination: titleCase($('#train-destination').val()),
+      firstTime: $('#train-first-time').val(),
+      frequency: $('#train-frequency')
+        .val()
+        .trim(),
+    };
+
+    // * Push data into database, return error if it sucks
+    db.push(data, function(error) {
+      if (error) {
+        if (debug) console.log(error);
+      } else {
+        if (debug) console.log('Saved in the DB:', data);
+        resetInputs();
+      }
+    });
+  }
+
+  // refreshes page every 60 seconds
+  setInterval(function() {
+    window.location.reload();
+    if (debug) console.log('Refreshed page');
+  }, 60000);
 });
