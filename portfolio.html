@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <title>Portfolio</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
     <!-- Header -->
     <header class="shadow">
       <div class="wrapper">
-        <div class="header-name">
-          <span>Jenn London</span>
-        </div>
+        <div class="navbar">
+          <div class="header-name nav_logo">
+            <span>Jenn London</span>
+          </div>
 
-        <ul>
-          <li><a href="./portfolio.html" class="active">Portfolio</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./index.html">About</a></li>
-        </ul>
+          <nav class="nav_links">
+            <a href="./index.html">About</a>
+            <a href="./portfolio.html" class="active">Portfolio</a>
+            <a href="./contact.html">Contact</a>
+          </nav>
+        </div>
       </div>
     </header>
     <!-- End Header -->
@@ -32,61 +38,59 @@
         <div class="card-body">
           <!-- End Bio -->
 
-          <!-- Start Grid -->
+          <!-- Start-Grid -->
           <section class="grid-wrapper">
             <article class="grid-item">
               <figure>
-                <img
-                  src="./assets/images/nature-q-c-640-480-3.jpg"
-                  alt="Hangman"
-                />
-                <figcaption>
-                  <span><a>Hangman</a></span>
-                </figcaption>
+                <a href="https://triviagame.jennlondon.dev/">
+                  <img src="./assets/images/trivia.png" alt="Trivia" />
+                  <figcaption>
+                    <span>Disney Trivia</span>
+                  </figcaption>
+                </a>
               </figure>
             </article>
             <article class="grid-item">
               <figure>
-                <img
-                  src="./assets/images/abstract-q-c-640-480-4.jpg"
-                  alt="RPG Game"
-                />
-                <figcaption>
-                  <span><a>RPG Game</a></span>
-                </figcaption>
+                <a href="https://train-scheduler.jennlondon.dev/">
+                  <img src="./assets/images/train.png" alt="Train" />
+                  <figcaption>
+                    <span>Northwest Train Schedule</span>
+                  </figcaption>
+                </a>
               </figure>
             </article>
             <article class="grid-item">
               <figure>
-                <img
-                  src="./assets/images/city-q-c-640-480-10.jpg"
-                  alt="Trivia Game"
-                />
-                <figcaption>
-                  <span><a>Trivia Game</a></span>
-                </figcaption>
+                <a href="https://gemgame.jennlondon.dev/">
+                  <img src="./assets/images/gem.png" alt="Gem" />
+                  <figcaption>
+                    <span>Gem Collector</span>
+                  </figcaption>
+                </a>
               </figure>
             </article>
             <article class="grid-item">
               <figure>
-                <img
-                  src="./assets/images/fashion-q-c-640-480-3.jpg"
-                  alt="Rutgers Info Widget"
-                />
-                <figcaption>
-                  <span><a>Rutgers Info Widget</a></span>
-                </figcaption>
+                <a
+                  title="Pet Match"
+                  href="https://jennlondon15.github.io/GroupProjectAwesome/"
+                >
+                  <img src="./assets/images/petmatch.png" alt="PetMatch" />
+                  <figcaption>
+                    <span>PetMatch</span>
+                  </figcaption>
+                </a>
               </figure>
             </article>
             <article class="grid-item">
               <figure>
-                <img
-                  src="./assets/images/sports-q-c-640-480-10.jpg"
-                  alt="Rock Paper Scissors"
-                />
-                <figcaption>
-                  <span><a>Rock Paper Scissors</a></span>
-                </figcaption>
+                <a href="https://hangman.jennlondon.dev/">
+                  <img src="./assets/images/hangman.png" alt="Hangman" />
+                  <figcaption>
+                    <span>Broadway Hangman</span>
+                  </figcaption>
+                </a>
               </figure>
             </article>
           </section>

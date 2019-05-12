@@ -1,49 +1,51 @@
+html {
+  min-width: 320px;
+}
+
 body {
-  padding: 0;
-  margin: 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   font-size: 18px;
   line-height: 150%;
   color: #333;
-  background: #ffffff;
-  background: url(../images/bg.png) center repeat;
-  background-size: auto;
+  background-color: #ffffff;
+  background-image: url(../images/bg.png);
   background: linear-gradient(to right, #86523e87, #bfe5ff75),
-    url("../images/bg.png") center repeat;
+    url('../images/bg.png');
+  background-position: center center;
+  background-repeat: round;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 header {
   background: #fff;
-  height: 100px;
   margin-bottom: 50px;
-  font-family: "Georgia", "Times", "Times New Roman", serif;
+  font-family: 'Georgia', 'Times', 'Times New Roman', serif;
+  height: 100px;
+  line-height: 100px;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 22px;
-  overflow: hidden;
-  background-color: #fff;
+/* MENU */
+nav {
   float: right;
 }
 
-li {
-  float: right;
-}
-
-li a {
-  display: block;
+nav a {
+  padding: 0 10px;
   color: #777;
-  text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
 }
 
-li a.active {
+nav a.active {
   color: #4aaaa5;
 }
 
-li a:hover {
+nav a:hover {
   color: #4aaaa5;
 }
 
@@ -59,19 +61,31 @@ footer {
 form {
   font-size: 14px;
   width: 860px;
-  font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+  font-family: 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+figure a {
+  padding: 0 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+figure a:hover {
+  color: #ffffff;
+}
+
+figure a:visited {
+  color: #ffffff;
 }
 
 /* Main Layout */
-
 .header-name {
   background-color: #4aaaa5;
-  float: left;
   text-align: center;
   color: white;
   font-size: 32px;
-  padding: 36.5px;
-  font-family: "Georgia", "Times", "Times New Roman", serif;
+  width: 350px;
+  font-family: 'Georgia', 'Times', 'Times New Roman', serif;
 }
 
 .shadow {
@@ -81,7 +95,8 @@ form {
 }
 
 .wrapper {
-  width: 960px;
+  width: 100vw;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -92,6 +107,7 @@ form {
 .card {
   background-color: white;
   padding: 50px;
+  margin: 0 20px;
 }
 
 .card-title {
@@ -100,7 +116,7 @@ form {
   padding: 0 0 40px;
   margin-bottom: 40px;
   border-bottom: 3px solid #dddddd;
-  font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+  font-family: 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
 .card-body {
@@ -121,7 +137,7 @@ form {
   line-height: 2.2;
   margin: 0;
   color: #777;
-  font-family: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+  font-family: 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
 /* Form Layout */
@@ -202,6 +218,20 @@ form {
 }
 
 @supports (display: grid) {
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nav_logo {
+    align-self: start;
+  }
+
+  .nav_links {
+    grid-column: 3;
+    align-self: end;
+  }
+
   .grid-wrapper {
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
@@ -229,7 +259,7 @@ form {
   width: 100%;
   height: 100%;
   /* background-image: linear-gradient(0deg, #f093fb 0%, #f5576c 100%); */
-  content: "";
+  content: '';
 }
 
 .grid-item figure:hover img {
@@ -277,4 +307,57 @@ form {
   height: 100%;
   object-fit: cover;
   transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 980px) {
+}
+@media only screen and (max-width: 768px) {
+  .grid-wrapper {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+
+  form {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .grid-wrapper {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+
+  .navbar {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .nav_logo {
+    grid-template-columns: repeat(1, 1fr);
+    align-self: start;
+  }
+
+  .nav_links {
+    grid-column: 1;
+    align-self: end;
+    background: white;
+    text-align: center;
+  }
+
+  .header-name {
+    width: 100vw;
+  }
+
+  #content {
+    margin-top: 120px;
+  }
+
+  form {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .card-body-image img {
+    width: 100px;
+    height: 100px;
+  }
 }
